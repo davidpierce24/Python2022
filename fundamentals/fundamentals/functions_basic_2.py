@@ -44,7 +44,8 @@ print(first_plus_length([2,5,4,3,7,8]))
 # 5 This length, that value
 def length_value(size, value):
     list = []
-    for x in range(0, size):
+    for x in range(1, size+1):
         list.append(value)
+    return list
 
 print(length_value(7, 4))
