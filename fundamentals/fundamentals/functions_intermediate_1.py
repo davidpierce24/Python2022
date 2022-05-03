@@ -52,7 +52,43 @@ iterateDictionary(students)
 
 
 # 3 Get values from a list of dictionaries
+def iterateDictionary2(key_name, some_list):
+    for item in some_list:
+        print(item[key_name])
+
+iterateDictionary2('last_name', students)
 
 
 
 # 4 Iterate through a dictionary with list values
+def printInfo(some_dict):
+    for item in some_dict:
+        print(len(item), item)
+        for num in range(0, len(some_dict[item])):
+            print(some_dict[item][num])
+
+
+dojo = {
+   'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+   'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
+}
+printInfo(dojo)
+# # output:
+# 7 LOCATIONS
+# San Jose
+# Seattle
+# Dallas
+# Chicago
+# Tulsa
+# DC
+# Burbank
+    
+# 8 INSTRUCTORS
+# Michael
+# Amy
+# Eduardo
+# Josh
+# Graham
+# Patrick
+# Minh
+# Devon
