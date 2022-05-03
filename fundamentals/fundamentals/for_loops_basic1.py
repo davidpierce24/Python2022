@@ -21,7 +21,7 @@ for mult in range(1, 101):
 
 # 4 Whoa, that sucker's huge
     sum = 0
-for count in range(1, 500000):
+for count in range(0, 500000):
     if(count%2 == 1):
         sum += count
 print(sum)
