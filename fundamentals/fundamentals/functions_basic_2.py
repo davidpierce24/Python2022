@@ -23,23 +23,14 @@ print(first_plus_length([2,5,4,3,7,8]))
 
 
 # 4 Values greater than second
-# def values_greater(list):
-#     temp = []
-#     count = 0
-#     if(len(list) <= 2):
-#         return False
-#     for value in list:
-#         b = value + 1
-#         print(value)
-#         if(list[value] > list[b]):
-#             if(value+1 >= len(list)):
-#                 b = 0
-#             count += 1
-#             temp.append(value)
-#     print(count)
-#     return temp
+def values_greater(list):
+    temp = []
+    for i in list:
+        if(i > list[1]):
+            temp.append(i)
+    return temp
 
-# print(values_greater([5,2,7,8,5,9,3,4,2]))
+print(values_greater([5,2,7,8,5,9,3,4,2]))
 
 # 5 This length, that value
 def length_value(size, value):
