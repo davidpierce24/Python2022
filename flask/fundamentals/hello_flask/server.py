@@ -21,6 +21,10 @@ def repeat(word, x):
         list += f"{word}\r\n"
     return list
 
+@app.route('/<word>')
+def notwork(word):
+    return "Sorry! No response. Try again."
+
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
     app.run(debug=True)    # Run the app in debug mode.
 
