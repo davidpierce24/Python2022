@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3</title>
+
+<style>
+
+h1{
+    text-align: center;
+}
+
+.contain{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box{
+    background-color: blue;
+    height: 300px;
+    width: 300px;
+    margin: 30px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+    
+    <h1>Welcome!</h1>
+
+    <div class="contain">
+
+        {% for item in range(0,x): %}
+        <div class="box" style="background-color: {{color}};"></div>
+        {% endfor %}
+        
+    </div>
+
+</body>
+</html>
