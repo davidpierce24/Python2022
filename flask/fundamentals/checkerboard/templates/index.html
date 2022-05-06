@@ -7,12 +7,26 @@
     <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+
+    <style>
+        .check1{
+            background-color: {{color1}};
+        }
+        .check2{
+            background-color: {{color2}};
+        }
+        h1{
+            color: {{color1}};
+            background-color: {{color2}};
+        }
+    </style>
+
 </head>
 <body>
     <div class="container">
         <h1>***Checkerboard***</h1>
 
-        {% for item in range(x) %}
+        {% for item in range(y) %}
         <div class="con">
             {% for j in range(x) %}
             <div class="check{{ (item+j)%2 + 1 }}"></div>
