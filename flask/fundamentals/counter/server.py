@@ -5,46 +5,26 @@ app.secret_key = "howdoidothis"
 
 @app.route('/')
 def index():
-    
-    # if 'visits' in session:
-    #     print('key exists!')
-    #     print(session['visits'])
     if session.get('visits') is None:
         session['visits'] = 1
-
     else:
         session['visits'] +=1
         print(session)
-
-    # else:
-    #     print("key 'full_name' does NOT exist")
-    
-
-    #     var = session.get('visits')
-    #     var += 1
-
-    # session['visits'] = var
-
-
-
     return render_template('index.html')
 
-# @app.route('/process')
-# def process():
+@app.route('/destroy_session')
+def destroy():
+    session.clear()
+    return redirect('/')
 
-#     session['load'] = request.form['load']
+@app.route('/count', methods = ['post'])
+def count():
+    session['visits'] +=1
+    return redirect('/')
 
-#     if 'full_name' in session:
-#         print('key exists!')
-#     else:
-#         print("key 'load' does NOT exist")
-
-#     # return render_template('index.html')
-
-
-
-
-
+@app.route('/reset', methods = ['post'])
+def reset():
+    return redirect('/destroy_session')
 
 
 
