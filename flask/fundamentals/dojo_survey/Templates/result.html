@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey Result</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Name: {{session['name']}}</h2>
+        <h2>Dojo Location: {{session['location']}}</h2>
+        <h2>Favorite Language: {{session['language']}}</h2>
+        <h2>Comment (optional): {{session['comment']}}</h2>
+    </div>
+    <form action="/reset" method="post" >
+        <input type="submit" name="submit" id="">
+    </form>
+</body>
+</html>
