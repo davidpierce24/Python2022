@@ -1,5 +1,4 @@
 # import the function that will return an instance of a connection
-from winreg import QueryInfoKey
 from mysqlconnection import connectToMySQL
 
 
