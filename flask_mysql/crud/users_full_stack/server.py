@@ -7,7 +7,13 @@ from user import User
 
 app = Flask(__name__)
 
+# Route to render all users
+@app.route('/')
+def all_users():
 
+    users = User.get_all()
+    print(users)
+    return render_template("read_all.html", users = users)
 
 
 

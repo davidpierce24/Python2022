@@ -7,6 +7,16 @@
     <title>Create</title>
 </head>
 <body>
-    
+    <h1>CREATE A USER</h1>
+
+    <form action="/add_user" method="POST">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name">
+        <label for="email">Email:</label>
+        <input type="text" name="email">
+        <input type="submit" value="Create a User">
+    </form>
 </body>
 </html>
