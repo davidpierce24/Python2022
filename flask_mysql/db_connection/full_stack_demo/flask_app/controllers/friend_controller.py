@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, redirect
 
 # import the class from friend.py
 from flask_app.models.friend import Friend
+from flask_app.models.dog import Dog
 
 
 # Route to render all friends
@@ -12,8 +13,9 @@ from flask_app.models.friend import Friend
 def index():
     # call the get all classmethod to get all friends
     friends = Friend.get_all()
+    dogs = Dog.get_all_dogs()
     print(friends)
-    return render_template("index.html", all_friends = friends)
+    return render_template("index.html", all_friends = friends, all_dogs = dogs)
 
 # Route to create a friend
 @app.route('/create', methods=["POST"])
@@ -21,7 +23,8 @@ def create_friend():
     data = {
         'first_name': request.form['first_name'],
         'last_name': request.form['last_name'],
-        'occupation': request.form['occupation']
+        'occupation': request.form['occupation'], 
+        'dog_id': request.form['dog_id_from_form']
     }
 
     Friend.create_friend(data)

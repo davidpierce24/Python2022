@@ -25,6 +25,11 @@
         <input type="text" name="last_name">
         <label for="occupation" >Occupation:</label>
         <input type="text" name="occupation">
+        <select name="dog_id_from_form" id="">
+            {% for one_dog in all_dogs%}
+            <option value="{{one_dog.id}}">{{one_dog.type}}</option>
+            {% endfor %}
+        </select>
         <input type="submit" value="Add Friend">
     </form> 
 

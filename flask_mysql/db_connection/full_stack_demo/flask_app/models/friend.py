@@ -11,6 +11,7 @@ class Friend:
         self.occupation = data['occupation']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.dog_id = data['dog_id']
 
 
     # Now we use class methods to query our database
@@ -32,7 +33,7 @@ class Friend:
     # Method to create a friend
     @classmethod
     def create_friend(cls, data):
-        query = "INSERT INTO friends (first_name, last_name, occupation) VALUES (%(first_name)s, %(last_name)s, %(occupation)s);"
+        query = "INSERT INTO friends (first_name, last_name, occupation, dog_id) VALUES (%(first_name)s, %(last_name)s, %(occupation)s, %(dog_id)s);"
         return connectToMySQL('friends_schema').query_db(query, data)
 
 
