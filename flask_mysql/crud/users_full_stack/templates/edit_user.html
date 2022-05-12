@@ -7,7 +7,7 @@
     <title>Edit User</title>
 </head>
 <body>
-    <h1>Edit A USER</h1>
+    <h1>EDIT A USER</h1>
 
     <form action="/process_edit" method="POST">
 
@@ -19,7 +19,9 @@
         <input type="text" name="last_name">
         <label for="email">Email:</label>
         <input type="text" name="email">
-        <input type="submit" value="Create a User"><a href="/show_user/{{user.id}}">Show USER</a>
+        <input type="submit" value="Create a User"><a href="/show_user/{{id}}">Show User</a>
     </form>
+
+    <a href="/">HOME</a>
 </body>
 </html>

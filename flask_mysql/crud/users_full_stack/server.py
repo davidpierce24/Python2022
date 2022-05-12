@@ -46,18 +46,23 @@ def edit_user(id):
 
 
 # Route to add a new user
-@app.route('/process_add', methods = ["POST"])
-def add_user():
+# @app.route('/process_add', methods = ["POST"])
+# def add_user():
 
-    data = {
-        'first_name': request.form['first_name'],
-        'last_name': request.form['last_name'],
-        'email': request.form['email']
-    }
+#     data = {
+#         'first_name': request.form['first_name'],
+#         'last_name': request.form['last_name'],
+#         'email': request.form['email']
+#     }
 
-    User.create_user(data)
+#     User.create_user(data)
+#     id = User.get_id(data)
+    
+#     print(id)
 
-    return redirect('/')
+#     id = 'id'
+
+#     return redirect('/show_user/<int:id>')
 
 
 # Route to edit a user
