@@ -33,5 +33,5 @@ class User:
     # Method to create a user
     @classmethod
     def create_user(cls, data):
-        query = "INSERT INTO users (first_name, last_name, email, updated_at, created_at) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(NOW()), %(NOW()));"
+        query = "INSERT INTO users (first_name, last_name, email, updated_at, created_at) VALUES (%(first_name)s, %(last_name)s, %(email)s, NOW(), NOW());"
         return connectToMySQL('users_schema').query_db(query, data)
