@@ -18,7 +18,7 @@ class Friend:
     @classmethod
     def get_all(cls):
         # creating a variable that represents the actual SQL query
-        query = "SELECT * FROM friends;"
+        query = "SELECT * FROM friends JOIN dogs ON friends.dog_id = dog.id;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
         results = connectToMySQL('friends_schema').query_db(query)
         # Create an empty list to append our instances of friends

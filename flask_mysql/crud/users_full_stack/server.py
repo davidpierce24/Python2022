@@ -56,21 +56,16 @@ def add_user():
         'email': request.form['email']
     }
 
-    User.create_user(data)
-    id = User.get_id(data)
-    
-    print(id)
+    keep = User.create_user(data)
 
-    id = 'id'
 
-    return redirect('/show_user/<int:id>')
+    return redirect(f'/show_user/{keep}')
 
 
 # Route to edit a user
 @app.route('/process_edit', methods = ["POST"])
 def change_user():
 
-    # session['id'] = request.form['id']
 
     data = {
         'id': request.form['id'],
@@ -79,12 +74,24 @@ def change_user():
         'email': request.form['email']
     }
 
+    # id = request.form['id']
+    # both of these ways can access id
+
     User.edit_user(data)
 
-    return redirect('/show_user/<int:id>')
+    return redirect(f'/show_user/{data["id"]}')
 
 
+# Route to destroy a user
+@app.route('/delete/<int:id>')
+def destroy(id):
 
+    data = {
+        'id' : id
+    }
+
+    User.delete_user(data)
+    return redirect('/')
 
 
 

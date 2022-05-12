@@ -52,12 +52,19 @@ class User:
     # Method to edit a user
     @classmethod
     def edit_user(cls, data):
-        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW(), created_at = NOW() WHERE id = %(id)s;"
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW() WHERE id = %(id)s;"
         connectToMySQL('users_schema').query_db(query, data)
 
 
+    # @classmethod
+    # def get_id(cls, data):
+    #     query = "SELECT id FROM users WHERE first_name = %(first_name)s;"
+    #     results =  connectToMySQL('users_schema').query_db(query, data)
+    #     return results
+
+    
+    # Method to delete a user
     @classmethod
-    def get_id(cls, data):
-        query = "SELECT id FROM users WHERE first_name = %(first_name)s;"
-        results =  connectToMySQL('users_schema').query_db(query, data)
-        return results
+    def delete_user(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s;"
+        connectToMySQL('users_schema').query_db(query, data)
