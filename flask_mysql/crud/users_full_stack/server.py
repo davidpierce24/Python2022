@@ -42,8 +42,14 @@ def show_user(id):
 @app.route('/edit_user/<int:id>')
 def edit_user(id):
 
+    data = {
+        'id': id
+    }
 
-    return render_template("edit_user.html", id = id)
+    show = User.show_user(data)
+    print(show)
+
+    return render_template("edit_user.html", id = id, show = show)
 
 
 # Route to add a new user

@@ -12,13 +12,14 @@
     <form action="/process_edit" method="POST">
 
         <input type="hidden" name="id" value="{{id}}">
-
+        {% for row in show %}
         <label for="first_name">First Name:</label>
-        <input type="text" name="first_name">
+        <input type="text" name="first_name" placeholder="{{row['first_name']}}">
         <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name">
+        <input type="text" name="last_name" placeholder="{{row['last_name']}}">
         <label for="email">Email:</label>
-        <input type="text" name="email">
+        <input type="text" name="email" placeholder="{{row['email']}}">
+        {% endfor %}
         <input type="submit" value="Edit a User"><a href="/show_user/{{id}}">Show User</a>
     </form>
 
