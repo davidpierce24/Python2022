@@ -35,3 +35,23 @@ class User:
     def create_user(cls, data):
         query = "INSERT INTO users (first_name, last_name, email, updated_at, created_at) VALUES (%(first_name)s, %(last_name)s, %(email)s, NOW(), NOW());"
         return connectToMySQL('users_schema').query_db(query, data)
+
+
+
+    # Method to show a single user
+    @classmethod
+    def show_user(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results =  connectToMySQL('users_schema').query_db(query, data)
+        show = []
+        for user in results:
+            show.append(cls(user))
+        return show
+
+
+
+    # Method to edit a user
+    @classmethod
+    def edit_user(cls, data):
+        query = "UPDATE FROM users WHERE id = %(id)s SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW(), created_at = NOW();"
+        connectToMySQL('users_schema').query_db(query, data)

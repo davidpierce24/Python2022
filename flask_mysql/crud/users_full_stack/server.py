@@ -27,13 +27,20 @@ def create_user():
 # Route that directs you to page for showing user
 @app.route('/show_user/<int:id>')
 def show_user(id):
+    
+    data = {
+        'id': id
+    }
 
-    return render_template("read_one.html", id = id)
+    show = User.show_user(data)
+
+    return render_template("read_one.html", show = show, id = id)
 
 
 # Route that directs you to a page to edit a user
 @app.route('/edit_user/<int:id>')
 def edit_user(id):
+
 
     return render_template("edit_user.html", id = id)
 
@@ -53,11 +60,12 @@ def add_user():
     return redirect('/')
 
 
-# Route to add a new user
+# Route to edit a user
 @app.route('/process_edit', methods = ["POST"])
-def edit_user():
+def change_user():
 
     data = {
+        'id': request.form['id'],
         'first_name': request.form['first_name'],
         'last_name': request.form['last_name'],
         'email': request.form['email']
@@ -65,7 +73,7 @@ def edit_user():
 
     User.edit_user(data)
 
-    return redirect('/')
+    return redirect('/show_user/<int:id>')
 
 
 
