@@ -5,6 +5,7 @@ from flask import render_template, redirect, session, request
 from flask_app.models.dojo import Dojo
 
 
+# Home page route
 @app.route('/')
 def home():
 
@@ -12,3 +13,17 @@ def home():
     print(dojos)
 
     return render_template("dojos.html", dojos = dojos)
+
+
+# Route for adding a new dojo
+@app.route('/process/dojo', methods = ['POST'])
+def add_dojo():
+
+    data = {
+        'name': request.form['name']
+    }
+
+    Dojo.add_dojo(data)
+
+    return redirect('/')
+
