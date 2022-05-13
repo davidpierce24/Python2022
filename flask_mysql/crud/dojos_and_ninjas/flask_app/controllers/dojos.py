@@ -31,7 +31,7 @@ def add_dojo():
 
 # Route for taking user to Add ninja page
 @app.route('/add/ninja')
-def add_ninja():
+def to_ninja():
 
     dojos = Dojo.get_all()
 
