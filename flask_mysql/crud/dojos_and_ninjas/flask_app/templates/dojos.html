@@ -8,5 +8,12 @@
 </head>
 <body>
     <h1>Whats poppin</h1>
+
+    <h2>All Dojos</h2>
+
+    {% for item in dojos %}
+    <p><a href="#">{{item['name']}}</a></p>
+    {% endfor %}
+
 </body>
 </html>
