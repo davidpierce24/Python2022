@@ -27,3 +27,13 @@ def add_dojo():
 
     return redirect('/')
 
+
+
+# Route for taking user to Add ninja page
+@app.route('/add/ninja')
+def add_ninja():
+
+    dojos = Dojo.get_all()
+
+    return render_template("ninja.html", dojos = dojos)
+
