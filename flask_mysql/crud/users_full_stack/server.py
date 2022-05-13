@@ -1,12 +1,10 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import render_template, request, redirect, session
 
+from flask_app import app
 
 # import the class from user.py
 from user import User
-
-
-app = Flask(__name__)
-app.secret_key = 'what the heck is going on'
+ 
 
 # Route to render all users
 @app.route('/')
