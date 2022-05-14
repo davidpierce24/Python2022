@@ -37,3 +37,17 @@ def to_ninja():
 
     return render_template("ninja.html", dojos = dojos)
 
+
+
+# Route for taking user to specific dojo with list of ninjas
+@app.route('/show/dojo/<int:id>')
+def show_dojo(id):
+
+    data = {
+        'id': id
+    }
+
+    dojos = Dojo.show_dojo(data)
+
+    return render_template("show_dojo.html", dojos = dojos)
+

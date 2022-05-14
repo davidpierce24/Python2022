@@ -18,6 +18,6 @@ def process_ninja():
 
     Ninja.add_ninja(data)
 
-    return redirect('/')
+    return redirect(f'/show/dojo/{data["dojo_id"]}')
 
 

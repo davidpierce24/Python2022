@@ -7,19 +7,19 @@
     <title>Show Dojo</title>
 </head>
 <body>
-    <h1>{{dojo['name']}} Ninjas</h1>
+    <h1>{{dojos['name']}} Ninjas</h1>
     
     <table>
-        <th>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Age Name</td>
-        </th>
-        {% for dojo in dojos %}
         <tr>
-            <td>{{dojo['first_name']}}</td>
-            <td>{{dojo['last_name']}}</td>
-            <td>{{dojo['age']}}</td>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+        </tr>
+        {% for item in dojos.ninjas %}
+        <tr>
+            <td>{{item['first_name']}}</td>
+            <td>{{item['last_name']}}</td>
+            <td>{{item['age']}}</td>
         </tr>
         {% endfor %}
     </table><br>
