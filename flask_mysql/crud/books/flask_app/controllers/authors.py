@@ -10,5 +10,6 @@ from flask_app.models.author import Author
 @app.route('/')
 def show_authors():
 
+    authors = Author.show_all_authors()
 
-    return render_template("authors.html")
+    return render_template("authors.html", authors = authors)

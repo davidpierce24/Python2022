@@ -10,5 +10,6 @@ from flask_app.models.book import Book
 @app.route('/books')
 def show_books():
 
+    books = Book.show_all_books()
 
-    return render_template("books.html")
+    return render_template("books.html", books = books)
