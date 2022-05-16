@@ -21,3 +21,13 @@ class Author:
         results = connectToMySQL('books_schema').query_db(query)
 
         return results
+
+
+
+    # Method to add an author
+    def add_author(cls, data):
+        query = "INSERT INTO authors (name, created_at, updated_at) VALUES (%(name)s, NOW(), NOW());"
+
+        results = connectToMySQL('books_schema').query_db(query, data)
+
+        return results

@@ -1,3 +1,4 @@
+from winreg import QueryInfoKey
 from flask_app.config.mysqlconnection import connectToMySQL
 
 from flask_app.models import author
@@ -20,5 +21,16 @@ class Book:
         query = "SELECT * FROM books;"
 
         results = connectToMySQL('books_schema').query_db(query)
+
+        return results
+
+
+
+    # model for adding a book
+    @classmethod
+    def add_book(cls, data):
+        query = "INSERT INTO books (title, pages, created_at, updated_at) VALUES (%(title)s, %(pages)s, NOW(), NOW());"
+
+        results = connectToMySQL('books_schema').query_db(query, data)
 
         return results
