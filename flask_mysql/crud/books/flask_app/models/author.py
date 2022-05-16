@@ -25,6 +25,7 @@ class Author:
 
 
     # Method to add an author
+    @classmethod
     def add_author(cls, data):
         query = "INSERT INTO authors (name, created_at, updated_at) VALUES (%(name)s, NOW(), NOW());"
 
