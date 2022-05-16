@@ -17,7 +17,7 @@ def show_authors():
 
 
 # Route to process new author
-@app.route('/process/author', method=["POST"])
+@app.route('/process/author', methods=["POST"])
 def process_author():
 
     data = {
