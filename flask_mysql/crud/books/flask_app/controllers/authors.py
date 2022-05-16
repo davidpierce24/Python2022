@@ -13,3 +13,17 @@ def show_authors():
     authors = Author.show_all_authors()
 
     return render_template("authors.html", authors = authors)
+
+
+
+# Route to process new author
+@app.route('/process/author', method=["POST"])
+def process_author():
+
+    data = {
+        'name': request.form['name']
+    }
+
+    Author.add_author(data)
+
+    return redirect('/')
