@@ -7,6 +7,42 @@
     <title>Login</title>
 </head>
 <body>
+
+    <h1>Register</h1>
+
+    <!-- Form to register a user -->
+    <!-- #################################################### -->
+
+    <form action="/register" method="POST">
+        <label for="first_name">First Name: </label>
+        <input type="text" name="first_name"><br>
+        <label for="last_name">Last Name: </label>
+        <input type="text" name="last_name"><br>
+        <label for="email">Email: </label>
+        <input type="email" name="email"><br>
+        <label for="password">Password: </label>
+        <input type="password" name="password"><br>
+        <label for="confirm_password">Confirm Password: </label>
+        <input type="password" name="confirm_password"><br>
+        <input type="submit" value="Create">
+    </form>
+    <hr>
+    <!-- ############################################### -->
+    
+    <h1>Login</h1>
+
+    <!-- Form to login -->
+    <!-- ############################################ -->
+
+    <form action="/login" method="POST">
+        <label for="email">Email: </label>
+        <input type="email" name="email"><br>
+        <label for="password">Password: </label>
+        <input type="password" name="password"><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <!-- ######################################## -->
     
 </body>
 </html>
