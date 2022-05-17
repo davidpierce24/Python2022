@@ -36,5 +36,6 @@ def register_user():
     user_id = User.add_user(data)
 
     session['user_id'] = user_id
+    session['first_name'] = request.form['first_name']
 
-    return redirect('/')
+    return redirect('/success')
