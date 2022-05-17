@@ -45,7 +45,7 @@ class User:
         email_input = { "email" : data["email"] }
         user_in_db = User.get_by_email(email_input)
         
-        if not user_in_db:
+        if len(user_in_db) != 0:
             flash("Email already exists")
             is_valid = False
 
@@ -67,6 +67,7 @@ class User:
             flash("Passwords must match exactly")
             is_valid = False
 
+        return is_valid
     
     # ###############################################################
 
@@ -77,10 +78,12 @@ class User:
     def get_by_email(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL('login_schema').query_db(query, data)
-        if len(results) < 1:
-            return False
-        user = User(results[0])
-        return user
+        
+        users = []
+
+        for item in results:
+            users.append(User(item))
+        return users
 
 
     # Method to add a user to the database
