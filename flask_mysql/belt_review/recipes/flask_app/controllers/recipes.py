@@ -11,7 +11,13 @@ def to_recipe(id):
         flash("You must log in to view this page")
         return redirect('/')
 
-    return render_template("edit_recipe.html", id = id)
+    data = {
+        'id': id
+    }
+
+    recipes = Recipe.show_recipe(data)
+
+    return render_template("edit_recipe.html", id = id, recipes = recipes)
 
 
 
@@ -82,6 +88,10 @@ def add_recipe():
 @app.route('/show/recipe/<int:id>')
 def show_recipe(id):
 
+    data = {
+        'id': id
+    }
 
+    recipes = Recipe.show_recipe(data)
 
-    return render_template("recipe.html")
+    return render_template("recipe.html", recipes = recipes)

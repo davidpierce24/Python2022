@@ -70,4 +70,10 @@ class Recipe:
 
 
     # Method to show a recipe
-    
+    @classmethod
+    def show_recipe(cls, data):
+        query = "SELECT * FROM recipes WHERE id = %(id)s;"
+        results = connectToMySQL('recipes_schema').query_db(query, data)
+        recipe = cls(results[0])
+        return recipe
+
