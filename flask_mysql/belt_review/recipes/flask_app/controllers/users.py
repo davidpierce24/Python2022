@@ -79,3 +79,12 @@ def success():
     recipes = Recipe.get_recipes_with_user()
 
     return render_template("dashboard.html", recipes = recipes)
+
+
+
+# Route to logout user
+@app.route('/logout')
+def logout():
+    session.clear()
+
+    return redirect('/')
