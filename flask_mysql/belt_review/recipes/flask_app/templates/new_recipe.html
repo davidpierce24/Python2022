@@ -13,7 +13,7 @@
     <a href="#">Logout</a><br>
 
     <form action="/add/recipe" method="POST">
-        <input type="hidden" name="id"  value="{{id}}">
+        <input type="hidden" name="user_id"  value="{{session['user_id']}}">
         <label for="name">Name: </label><br>
         <input type="text" name="name"><br>
         <label for="description">Description: </label><br>
@@ -27,7 +27,7 @@
         <label for="yes">Yes </label><br>
         <input type="radio" name="under_thirty" value="no">
         <label for="no">No </label><br>
-        <input type="submit" value="Edit">
+        <input type="submit" value="Create">
     </form>
 </body>
 </html>

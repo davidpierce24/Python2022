@@ -36,6 +36,9 @@ def edit_recipe():
 # Route to delete recipe
 @app.route('/delete/recipe/<int:id>')
 def delete(id):
+    if 'user_id' not in session:
+        flash("You must log in to view this page")
+        return redirect('/')
 
     data = {
         'id': id
@@ -54,3 +57,22 @@ def to_add():
         return redirect('/')
 
     return render_template('new_recipe.html')
+
+
+
+# Route to add a recipe
+@app.route('/add/recipe', methods=["POST"])
+def add_recipe():
+
+    data = {
+        'user_id': request.form['user_id'],
+        'name': request.form['name'],
+        'description': request.form['description'],
+        'instructions': request.form['instructions'],
+        'created_at': request.form['created_at'],
+        'under_thirty': request.form['under_thirty']
+    }
+
+    Recipe.add_recipe(data)
+
+    return redirect('/dashboard')

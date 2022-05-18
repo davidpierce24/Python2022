@@ -58,3 +58,12 @@ class Recipe:
     def delete_recipe(cls, data):
         query = "DELETE FROM recipes WHERE id = %(id)s;"
         connectToMySQL('recipes_schema').query_db(query, data)
+
+
+
+    # Method to create recipe
+    @classmethod
+    def add_recipe(cls, data):
+        query = "INSERT INTO recipes (name, description, instructions, under_thirty, created_at, user_id) VALUES (%(name)s, %(description)s, %(instructions)s, %(under_thirty)s, %(created_at)s, %(user_id)s);"
+        results = connectToMySQL('recipes_schema').query_db(query, data)
+        return results
