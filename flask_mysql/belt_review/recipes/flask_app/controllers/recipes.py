@@ -13,7 +13,7 @@ def to_recipe(id):
 
 
 #  Route to edit recipe
-@app.route('/edit/recipe' methods=["POST"])
+@app.route('/edit/recipe', methods=["POST"])
 def edit_recipe():
 
     data = {
@@ -26,3 +26,18 @@ def edit_recipe():
     }
 
     Recipe.edit_recipe(data)
+
+    return redirect('/dashboard')
+
+
+# Route to delete recipe
+@app.route('/delete/recipe/<int:id>')
+def delete(id):
+
+    data = {
+        'id': id
+    }
+
+    Recipe.delete_recipe(data)
+
+    return redirect('/dashboard')
