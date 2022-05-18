@@ -4,6 +4,7 @@ bcrypt = Bcrypt(app)
 
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.user import User
+from flask_app.models.recipe import Recipe
 
 # Route to render the login and registration page
 @app.route('/')
@@ -76,6 +77,6 @@ def success():
         'id': session['user_id']
     }
 
-    users = User.get_recipes_by_user(data)
+    recipes = Recipe.get_recipes_with_user()
 
-    return render_template("dashboard.html", users = users)
+    return render_template("dashboard.html", recipes = recipes)

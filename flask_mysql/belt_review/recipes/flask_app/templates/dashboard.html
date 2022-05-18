@@ -17,11 +17,14 @@
             <th>Actions</th>
         </tr>
 
-        {% for user in users.recipes %}
+        {% for recipe in recipes %}
         <tr>
-            <td>{{user.name}}</td>
-            <td>{{user.under_thirty}}</td>
-            <td><a href="#">View Instructions</a></td>
+            <td>{{recipe.name}}</td>
+            <td>{{recipe.under_thirty}}</td>
+            <td>
+                <a href="#">View Instructions</a>
+                
+            </td>
         </tr>
         {% endfor %}
 
