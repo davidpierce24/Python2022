@@ -96,10 +96,11 @@ class User:
         return users
 
 
+
     # Method to display 
     @classmethod
     def get_recipes_by_user(cls, data):
-        query = "SELECT * FROM users LEFT JOIN recipes ON recipes.user_id = users.id WHERE id = %(id)s;"
+        query = "SELECT * FROM users LEFT JOIN recipes ON recipes.user_id = users.id WHERE users.id = %(id)s;"
 
         results = connectToMySQL('recipes_schema').query_db(query, data)
 

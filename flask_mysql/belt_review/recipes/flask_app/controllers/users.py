@@ -72,4 +72,10 @@ def success():
         flash("You must log in to view this page")
         return redirect('/')
 
-    return render_template("dashboard.html")
+    data = {
+        'id': session['user_id']
+    }
+
+    users = User.get_recipes_by_user(data)
+
+    return render_template("dashboard.html", users = users)
