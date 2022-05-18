@@ -67,3 +67,7 @@ class Recipe:
         query = "INSERT INTO recipes (name, description, instructions, under_thirty, created_at, user_id) VALUES (%(name)s, %(description)s, %(instructions)s, %(under_thirty)s, %(created_at)s, %(user_id)s);"
         results = connectToMySQL('recipes_schema').query_db(query, data)
         return results
+
+
+    # Method to show a recipe
+    

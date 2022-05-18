@@ -25,7 +25,7 @@
             <td>{{recipe.name}}</td>
             <td>{{recipe.under_thirty}}</td>
             <td>
-                <a href="#">View Instructions</a>
+                <a href="/show/recipe/{{recipe.id}}">View Instructions</a>
                 {% if recipe["user_id"] == session['user_id'] %}
                 <a href="/edit/recipe/{{recipe.id}}">Edit</a>
                 <a href="/delete/recipe/{{recipe.id}}">Delete</a>

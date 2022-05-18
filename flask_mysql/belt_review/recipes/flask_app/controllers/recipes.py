@@ -76,3 +76,12 @@ def add_recipe():
     Recipe.add_recipe(data)
 
     return redirect('/dashboard')
+
+
+# Route to show a recipe
+@app.route('/show/recipe/<int:id>')
+def show_recipe(id):
+
+
+
+    return render_template("recipe.html")
