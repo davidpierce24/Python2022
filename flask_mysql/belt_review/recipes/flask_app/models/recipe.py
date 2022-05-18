@@ -1,4 +1,3 @@
-from ast import FloorDiv
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 from flask_app.models import user
@@ -45,3 +44,10 @@ class Recipe:
             all_recipes.append(recipes)
 
         return all_recipes
+
+
+    # Method to edit a recipe
+    @classmethod
+    def edit_recipe(cls, data):
+        query = "UPDATE recipes SET name = %(name)s, description = %(description)s, instructions = %(instructions)s, under_thirty = %(under_thirty)s WHERE user_id = %(user_id)s;"
+        connectToMySQL('recipes_schema').query_db(query, data)

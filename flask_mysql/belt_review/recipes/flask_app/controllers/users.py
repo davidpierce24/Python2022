@@ -73,9 +73,8 @@ def success():
         flash("You must log in to view this page")
         return redirect('/')
 
-    data = {
-        'id': session['user_id']
-    }
+    print (session['user_id'])
+
 
     recipes = Recipe.get_recipes_with_user()
 

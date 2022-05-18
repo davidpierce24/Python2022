@@ -23,8 +23,10 @@
             <td>{{recipe.under_thirty}}</td>
             <td>
                 <a href="#">View Instructions</a>
-                
-            </td>
+                {% if recipe["user_id"] == session['user_id'] %}
+                <a href="#">Edit</a>
+                <a href="#">Delete</a>
+                {% endif %}
         </tr>
         {% endfor %}
 
