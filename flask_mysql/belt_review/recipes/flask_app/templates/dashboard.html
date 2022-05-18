@@ -24,8 +24,8 @@
             <td>
                 <a href="#">View Instructions</a>
                 {% if recipe["user_id"] == session['user_id'] %}
-                <a href="#">Edit</a>
-                <a href="#">Delete</a>
+                <a href="/edit/recipe/{{recipe.id}}">Edit</a>
+                <a href="/delete/recipe/{{recipe.id}}">Delete</a>
                 {% endif %}
         </tr>
         {% endfor %}
