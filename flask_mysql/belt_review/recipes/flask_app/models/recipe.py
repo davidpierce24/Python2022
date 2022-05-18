@@ -49,5 +49,5 @@ class Recipe:
     # Method to edit a recipe
     @classmethod
     def edit_recipe(cls, data):
-        query = "UPDATE recipes SET name = %(name)s, description = %(description)s, instructions = %(instructions)s, under_thirty = %(under_thirty)s WHERE user_id = %(user_id)s;"
+        query = "UPDATE recipes SET name = %(name)s, description = %(description)s, instructions = %(instructions)s, under_thirty = %(under_thirty)s, created_at = %(created_at)s WHERE user_id = %(user_id)s;"
         connectToMySQL('recipes_schema').query_db(query, data)
