@@ -7,6 +7,9 @@ from flask_app.models.recipe import Recipe
 # Route to take user to edit recipe page
 @app.route('/edit/recipe/<int:id>')
 def to_recipe(id):
+    if 'user_id' not in session:
+        flash("You must log in to view this page")
+        return redirect('/')
 
     return render_template("edit_recipe.html", id = id)
 
@@ -41,3 +44,13 @@ def delete(id):
     Recipe.delete_recipe(data)
 
     return redirect('/dashboard')
+
+
+# Route to take user to add new recipe page
+@app.route('/to/add')
+def to_add():
+    if 'user_id' not in session:
+        flash("You must log in to view this page")
+        return redirect('/')
+
+    return render_template('new_recipe.html')
