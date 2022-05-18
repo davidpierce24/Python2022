@@ -25,6 +25,10 @@ def to_recipe(id):
 @app.route('/edit/recipe', methods=["POST"])
 def edit_recipe():
 
+    if(len(request.form['name']) < 3 or len(request.form['description']) < 3 or len(request.form['instructions']) < 3):
+        flash("Text fields need at least 3 characters")
+        return redirect(f"/edit/recipe/{request.form['id']}")
+
     data = {
         'id': request.form['id'],
         'name': request.form['name'],
@@ -69,6 +73,10 @@ def to_add():
 # Route to add a recipe
 @app.route('/add/recipe', methods=["POST"])
 def add_recipe():
+
+    if(len(request.form['name']) < 3 or len(request.form['description']) < 3 or len(request.form['instructions']) < 3):
+        flash("Text fields need at least 3 characters")
+        return redirect('/to/add')
 
     data = {
         'user_id': request.form['user_id'],

@@ -9,6 +9,14 @@
 <body>
     <h1>Edit Recipe</h1><br>
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <a href="/dashboard">Dashboard</a>
     <a href="/logout">Logout</a><br>
 
