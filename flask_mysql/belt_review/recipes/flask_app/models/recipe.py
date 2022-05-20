@@ -16,7 +16,7 @@ class Recipe:
         self.user_id = data['user_id']
 
         self.user = {}
-
+      
 
 
      # Method to display recipes with user data
@@ -44,6 +44,77 @@ class Recipe:
             all_recipes.append(recipes)
 
         return all_recipes
+    
+    
+    #  # Method to display recipes with user data
+    # @classmethod
+    # def get_user_with_recipe(cls):
+    #     query = "SELECT * FROM users LEFT JOIN recipes ON recipes.user_id = users.id WHERE users.id = %(id)s;"
+
+    #     results = connectToMySQL('recipes_schema').query_db(query)
+
+    #     all_recipes = cls(results[0])
+
+    #     for row in results:
+    #         data = {
+    #             'id': row['id'],
+    #             'first_name': row['first_name'],
+    #             'last_name': row['last_name'],
+    #             'email': row['email'],
+    #             'password': row['password'],
+    #             'created_at': row['created_at'],
+    #             'updated_at': row['updated_at']
+    #         }
+    #         all_recipes.lists.append(user.User(data))
+        
+    #     return all_recipes
+    
+    
+     # Method to display recipes with user data
+    @classmethod
+    def get_recipes_with_user(cls):
+        query = "SELECT * FROM recipes LEFT JOIN users ON recipes.user_id = users.id;"
+
+        results = connectToMySQL('recipes_schema').query_db(query)
+
+        all_recipes = []
+
+        for row in results:
+            recipes = cls(row)
+
+            data = {
+                'id': row['id'],
+                'first_name': row['first_name'],
+                'last_name': row['last_name'],
+                'email': row['email'],
+                'password': row['password'],
+                'created_at': row['created_at'],
+                'updated_at': row['updated_at']
+            }
+            recipes.user = user.User(data)
+            all_recipes.append(recipes)
+
+        return all_recipes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     # Method to edit a recipe

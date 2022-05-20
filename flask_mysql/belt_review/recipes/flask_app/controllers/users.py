@@ -77,6 +77,8 @@ def success():
 
 
     recipes = Recipe.get_recipes_with_user()
+    
+    # users = Recipe.get_user_with_recipe()
 
     return render_template("dashboard.html", recipes = recipes)
 

@@ -15,6 +15,7 @@ class User:
         self.updated_at = data['updated_at']
 
         self.recipes = []
+        
 
 
     # Validation #################################################
@@ -97,27 +98,51 @@ class User:
 
 
 
-    # # Method to display recipes based on user
+    # Method to display recipes based on user
+    @classmethod
+    def get_user_with_recipe(cls, data):
+        query = "SELECT * FROM users LEFT JOIN recipes ON recipes.user_id = users.id WHERE users.id = %(id)s;"
+
+        results = connectToMySQL('recipes_schema').query_db(query, data)
+
+        users = cls(results[0])
+
+        for row in results:
+            data = {
+                'id': row['recipes.id'],
+                'name': row['name'],
+                'description': row['description'],
+                'instructions': row['instructions'],
+                'under_thirty': row['under_thirty'],
+                'created_at': row['recipes.created_at'],
+                'updated_at': row['recipes.updated_at'],
+                'user_id': row['user_id']
+            }
+            users.recipes.append(recipe.Recipe(data))
+
+        return users
+    
+    
+    #  # Method to display recipes with user data
     # @classmethod
-    # def get_recipes_by_user(cls, data):
+    # def get_user_with_recipe(cls):
     #     query = "SELECT * FROM users LEFT JOIN recipes ON recipes.user_id = users.id WHERE users.id = %(id)s;"
 
-    #     results = connectToMySQL('recipes_schema').query_db(query, data)
+    #     results = connectToMySQL('recipes_schema').query_db(query)
 
-    #     users = cls(results[0])
+    #     all_recipes = cls(results[0])
 
     #     for row in results:
     #         data = {
     #             'id': row['id'],
-    #             'name': row['name'],
-    #             'description': row['description'],
-    #             'instructions': row['instructions'],
-    #             'under_thirty': row['under_thirty'],
+    #             'first_name': row['first_name'],
+    #             'last_name': row['last_name'],
+    #             'email': row['email'],
+    #             'password': row['password'],
     #             'created_at': row['created_at'],
-    #             'updated_at': row['updated_at'],
-    #             'user_id': row['user_id']
+    #             'updated_at': row['updated_at']
     #         }
-    #         users.recipes.append(recipe.Recipe(data))
-
-    #     return users
+    #         all_recipes.lists.append(user.User(data))
+        
+    #     return all_recipes
 
